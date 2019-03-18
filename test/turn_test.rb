@@ -33,5 +33,28 @@ class TurnTest < Minitest::Test
     assert_equal true, turn.correct?
   end
 
+  def test_it_can_see_another_card
+    card_2 = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+    turn = Turn.new("Juneau", card_2)
+
+    assert_equal card_2, turn.card
+  end
+
+  def test_it_can_test_if_guess_is_wrong
+    card_2 = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+    turn = Turn.new("Juneau", card_2)
+
+    assert_equal false, turn.correct?
+  end
+
+  def test_it_can_give_different_feedback
+    card_2 = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+    turn = Turn.new("Juneau", card_2)
+
+    assert_equal "Incorrect.", turn.feedback
+  end
+
+end
+
 
 end
