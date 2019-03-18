@@ -8,4 +8,8 @@ class Turn
     @card = card
   end
 
+  def correct?
+    @guess.upcase == @card.answer.upcase
+  end
+
 end
